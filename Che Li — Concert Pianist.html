@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Che Li — Concert Pianist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --ivory: #faf7f2;
+    --charcoal: #1a1a1a;
+    --warm-black: #111010;
+    --gold: #b8966e;
+    --gold-light: #d4b896;
+    --muted: #6b6558;
+    --border: rgba(184,150,110,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--ivory);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.4s;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-social {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .nav-social a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+  .nav-social a:hover { color: var(--gold); }
+
+  /* ─── HERO ─── */
+  #home {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-side {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: grayscale(15%) contrast(1.05);
+    animation: heroReveal 1.4s ease forwards;
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  @keyframes heroReveal {
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 60%, var(--ivory) 100%);
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 5rem 5rem 3rem;
+    animation: fadeUp 1.2s 0.4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 380px;
+    font-style: italic;
+  }
+
+  .hero-cta {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    background: var(--charcoal);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 1px solid var(--charcoal);
+  }
+  .btn-primary:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .btn-secondary {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: color 0.3s;
+  }
+  .btn-secondary:hover { color: var(--gold); }
+
+  /* ─── SECTIONS COMMON ─── */
+  section { padding: 7rem 0; }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .gold-rule {
+    width: 50px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 2.5rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  /* ─── BIO ─── */
+  #bio {
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+
+  #bio .section-title { color: var(--cream); }
+
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .bio-image {
+    position: relative;
+  }
+
+  .bio-image img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: top;
+    filter: grayscale(20%);
+  }
+
+  .bio-image-caption {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    background: var(--gold);
+    padding: 1.2rem 1.8rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--charcoal);
+    text-transform: uppercase;
+  }
+
+  .bio-text p {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: rgba(245,240,232,0.8);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .bio-highlights {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .bio-highlight-item {
+    border-left: 2px solid var(--gold);
+    padding-left: 1rem;
+  }
+
+  .bio-highlight-item .year {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .bio-highlight-item .desc {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.7);
+    font-style: italic;
+  }
+
+  /* ─── PERFORMANCES ─── */
+  #performances {
+    background: var(--cream);
+  }
+
+  .performances-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .performance-card {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .performance-card:hover { padding-left: 1rem; border-left: 2px solid var(--gold); }
+
+  .perf-year {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .perf-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--charcoal);
+    margin-bottom: 0.4rem;
+  }
+
+  .perf-detail {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ─── AWARDS ─── */
+  #awards { background: var(--ivory); }
+
+  .awards-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 1rem;
+  }
+
+  .award-item {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    border: 1px solid var(--border);
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .award-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--charcoal);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.35s ease;
+    z-index: 0;
+  }
+
+  .award-item:hover::before { transform: scaleY(1); }
+  .award-item:hover .award-year,
+  .award-item:hover .award-name,
+  .award-item:hover .award-org { color: var(--cream); }
+  .award-item:hover .award-year { color: var(--gold-light); }
+
+  .award-item > * { position: relative; z-index: 1; }
+
+  .award-year {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    transition: color 0.35s;
+  }
+
+  .award-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+    transition: color 0.35s;
+  }
+
+  .award-org {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.85rem;
+    transition: color 0.35s;
+  }
+
+  /* ─── MEDIA ─── */
+  #media { background: var(--charcoal); }
+  #media .section-title { color: var(--cream); }
+  #media .section-label { color: var(--gold); }
+
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+    max-width: 900px;
+  }
+
+  .media-embed {
+    aspect-ratio: 16/9;
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .media-embed:hover { border-color: var(--gold); }
+
+  .media-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    inset: 0;
+  }
+
+  .media-placeholder {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .media-placeholder .play-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.3rem;
+    color: var(--gold);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .media-placeholder .play-icon:hover {
+    background: var(--gold);
+    color: var(--charcoal);
+  }
+
+  .media-placeholder p {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: rgba(245,240,232,0.5);
+  }
+
+  /* ─── REVIEW ─── */
+  #reviews { background: var(--cream); }
+
+  .review-block {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    padding: 4rem 2rem;
+  }
+
+  .review-block::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12rem;
+    color: var(--border);
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .review-text {
+    font-size: 1.2rem;
+    line-height: 2;
+    font-style: italic;
+    color: var(--charcoal);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .review-source {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .review-author {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+
+  /* ─── PRESS KIT ─── */
+  #presskit { background: var(--ivory); }
+
+  .presskit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .presskit-info p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .presskit-downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .download-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: var(--charcoal);
+  }
+  .download-item:hover {
+    border-color: var(--gold);
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+
+  .download-icon {
+    font-size: 1.5rem;
+    color: var(--gold);
+  }
+
+  .download-info strong {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  .download-info span {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--muted);
+  }
+  .download-item:hover .download-info span { color: rgba(245,240,232,0.6); }
+
+  .presskit-contact {
+    background: var(--charcoal);
+    padding: 3rem;
+    color: var(--cream);
+  }
+
+  .presskit-contact h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    color: var(--cream);
+  }
+
+  .contact-line {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-style: italic;
+    color: rgba(245,240,232,0.7);
+    font-size: 0.95rem;
+  }
+
+  .contact-line .icon { color: var(--gold); }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+  }
+  #contact .section-title { color: var(--cream); }
+
+  .contact-intro {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(245,240,232,0.6);
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-item {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+  }
+
+  .contact-item a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .social-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+
+  .social-links a:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--warm-black);
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-copy {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: rgba(245,240,232,0.3);
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-social a {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    font-family: 'Cinzel', serif;
+    color: rgba(245,240,232,0.3);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-social a:hover { color: var(--gold); }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    #home { grid-template-columns: 1fr; }
+    .hero-image-side { height: 70vw; }
+    .hero-content { padding: 4rem 2rem 3rem; }
+    .bio-grid, .performances-grid, .presskit-grid, .awards-list { grid-template-columns: 1fr; }
+    .media-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo"><img src="Che_Logo.jpg" alt="Che Li"></a>
+  <ul class="nav-links">
+    <li><a href="#bio">Biography</a></li>
+    <li><a href="#performances">Performances</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#presskit">Press Kit</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/chelipiano/" target="_blank" title="Instagram">IG</a>
+    <a href="https://youtube.com/@chelipiano" target="_blank" title="YouTube">YT</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <div class="hero-image-side">
+    <img src="911cbcd940cdd3a27442e77bc9b7a90e.JPG" alt="Che Li, Concert Pianist">
+    <div class="hero-image-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Concert Pianist · Educator · Collaborator</span>
+    <h1 class="hero-name">Che<br>Li</h1>
+    <p class="hero-title">Concert Pianist</p>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">A voice of majestic grandeur and sentimental grace — performing across two continents.</p>
+    <div class="hero-cta">
+      <a href="#bio" class="btn-primary">Discover More</a>
+      <a href="#contact" class="btn-secondary">Book a Performance</a>
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section id="bio">
+  <div class="container">
+    <span class="section-label">Biography</span>
+    <div class="bio-grid">
+      <div class="bio-image">
+        <img src="766484f662fee47ca62e9ad0c1850cbb.JPG" alt="Che Li portrait">
+        <div class="bio-image-caption">Boston · 2026</div>
+      </div>
+      <div class="bio-text">
+        <h2 class="section-title">A Pianist of<br>Two Worlds</h2>
+        <div class="gold-rule"></div>
+        <p>Pianist Che Li, a native of Zhejiang, China, has been an active performer in both the United States and China. He performed the Grieg Piano Concerto with the Shanghai Philharmonic Orchestra (2016), Chopin's Piano Concerto No. 2 with the Santa Monica Symphony Orchestra at Colburn Conservatory (2019), and Tchaikovsky Piano Concerto No. 1 with the Mercury Orchestra at New England Conservatory (2023).</p>
+        <p>He has appeared as solo recitalist at the Wenzhou University School of Music, Cadillac Shanghai Concert Hall, and Hefei Grand Theater as part of the acclaimed "Yangtze River Delta New Shining Stars" series.</p>
+        <p>Che Li began piano studies at the age of four, taught by his mother. After studies at the Shanghai Conservatory with Prof. Yunlin Yang, he entered New England Conservatory in 2019, graduating in 2025 with a Master of Music under Alexander Korsantia. He now pursues an Artist Diploma with Pavel Nersessian at Boston University College of Fine Arts.</p>
+
+        <div class="bio-highlights">
+          <div class="bio-highlight-item">
+            <div class="year">2026</div>
+            <div class="desc">1st Prize — BU Richmond Piano Competition</div>
+          </div>
+          <div class="bio-highlight-item">
+            <div class="year">2024</div>
+            <div class="desc">1st Prize — IX Krystian Tkaczewski Intl. Competition, Poland</div>
+          </div>
+          <div class="bio-highlight-item">
+            <div class="year">2024</div>
+            <div class="desc">Special Liszt Prize — San Francisco Intl. Piano Competition</div>
+          </div>
+          <div class="bio-highlight-item">
+            <div class="year">2023</div>
+            <div class="desc">1st Prize — Fou Ts'ong Intl. Concerto Competition</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCES -->
+<section id="performances">
+  <div class="container">
+    <span class="section-label">Performances</span>
+    <h2 class="section-title">On Stage</h2>
+    <div class="gold-rule"></div>
+    <div class="performances-grid">
+      <div class="performance-card">
+        <div class="perf-year">2023 · Boston, MA</div>
+        <div class="perf-title">Tchaikovsky Piano Concerto No. 1</div>
+        <div class="perf-detail">Mercury Orchestra · Jordan Hall, New England Conservatory · Foundation for Chinese Performing Arts Summer Festival</div>
+      </div>
+      <div class="performance-card">
+        <div class="perf-year">2019 · Los Angeles, CA</div>
+        <div class="perf-title">Chopin Piano Concerto No. 2</div>
+        <div class="perf-detail">Santa Monica Symphony Orchestra · Colburn Conservatory of Music</div>
+      </div>
+      <div class="performance-card">
+        <div class="perf-year">2016 · Shanghai, China</div>
+        <div class="perf-title">Grieg Piano Concerto</div>
+        <div class="perf-detail">Shanghai Philharmonic Orchestra · Shanghai</div>
+      </div>
+      <div class="performance-card">
+        <div class="perf-year">Recitals · China</div>
+        <div class="perf-title">Solo Recitals</div>
+        <div class="perf-detail">Cadillac Shanghai Concert Hall · Hefei Grand Theater ("Yangtze River Delta New Shining Stars") · Wenzhou University School of Music</div>
+      </div>
+      <div class="performance-card">
+        <div class="perf-year">Masterclasses</div>
+        <div class="perf-title">Study with Master Teachers</div>
+        <div class="perf-detail">Yoheved Kaplansky · Hung-Kuan Chen · Jerome Lowenthal</div>
+      </div>
+      <div class="performance-card">
+        <div class="perf-year">Festivals</div>
+        <div class="perf-title">International Piano Festivals</div>
+        <div class="perf-detail">PianoTexas · Vancouver Piano Session · PianoSummer NY · Cleveland International Music Festival · International Chopin Festival, Poland</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="container">
+    <span class="section-label">Competition Prizes</span>
+    <h2 class="section-title">Recognition</h2>
+    <div class="gold-rule"></div>
+    <div class="awards-list">
+      <div class="award-item">
+        <div class="award-year">2026</div>
+        <div class="award-name">First Prize</div>
+        <div class="award-org">Boston University Richmond Piano Competition</div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">2024</div>
+        <div class="award-name">First Prize</div>
+        <div class="award-org">IX Krystian Tkaczewski Intl. Piano Competition, Poland</div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">2024</div>
+        <div class="award-name">Special Liszt Prize</div>
+        <div class="award-org">San Francisco International Piano Competition</div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">2024</div>
+        <div class="award-name">Second Prize</div>
+        <div class="award-org">XV Chopin Piano Competition, Hartford</div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">2023</div>
+        <div class="award-name">First Prize</div>
+        <div class="award-org">Fou Ts'ong International Concerto Competition</div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">2017</div>
+        <div class="award-name">First Prize</div>
+        <div class="award-org">National Youth Piano Open Competition, Shanghai Conservatory</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <div class="container">
+    <span class="section-label">Audio & Video</span>
+    <h2 class="section-title">Listen & Watch</h2>
+    <div class="gold-rule"></div>
+    <div class="media-grid">
+      <div class="media-embed">
+        <iframe src="https://www.youtube.com/embed/DkJs2Lna6ro" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <div class="media-embed">
+        <iframe src="https://www.youtube.com/embed/f3P80Jpn9v8" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="https://youtube.com/@chelipiano" target="_blank" class="btn-primary" style="display:inline-block;">View Full Channel ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <span class="section-label">Press</span>
+    <h2 class="section-title" style="text-align:center;">What Critics Say</h2>
+    <div class="gold-rule" style="margin:0 auto 2rem;"></div>
+    <div class="review-block">
+      <p class="review-text">
+        "Right from the introduction of the concerto, one sensed the majestic, yet charming grandeur in Li's pianism… Li gave an immaculate and pristine take of the first theme; the second and third themes sounded sentimental and ever flowing… With rapture, the crowd called Li back four times."
+      </p>
+      <div class="review-source">The Boston Musical Intelligencer</div>
+      <div class="review-author">— Chi Wei Lo, August 29, 2023</div>
+      <div style="margin-top:0.5rem; font-style:italic; color:var(--muted); font-size:0.85rem;">
+        Review of Tchaikovsky Piano Concerto No. 1 with the Mercury Orchestra, Jordan Hall
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS KIT -->
+<section id="presskit">
+  <div class="container">
+    <span class="section-label">Press Kit</span>
+    <h2 class="section-title">For the Media</h2>
+    <div class="gold-rule"></div>
+    <div class="presskit-grid">
+      <div class="presskit-info">
+        <p>Pianist Che Li is a prize-winning concert pianist from Zhejiang, China, currently pursuing an Artist Diploma at Boston University College of Fine Arts under Pavel Nersessian. Winner of the 2026 BU Richmond Piano Competition and the 2024 IX Krystian Tkaczewski International Piano Competition, he has performed with major orchestras in both the United States and China.</p>
+        <div class="presskit-downloads">
+          <a href="766484f662fee47ca62e9ad0c1850cbb.JPG" download class="download-item">
+            <span class="download-icon">⬇</span>
+            <div class="download-info">
+              <strong>Headshot 01</strong>
+              <span>High-resolution JPEG</span>
+            </div>
+          </a>
+          <a href="911cbcd940cdd3a27442e77bc9b7a90e.JPG" download class="download-item">
+            <span class="download-icon">⬇</span>
+            <div class="download-info">
+              <strong>Headshot 02</strong>
+              <span>High-resolution JPEG</span>
+            </div>
+          </a>
+          <a href="Che_Press_Kit_2026.pdf" download class="download-item">
+            <span class="download-icon">⬇</span>
+            <div class="download-info">
+              <strong>Full Press Kit 2026</strong>
+              <span>PDF · Bio, photos, contact</span>
+            </div>
+          </a>
+          <a href="Che_Bio_20260417.pdf" download class="download-item">
+            <span class="download-icon">⬇</span>
+            <div class="download-info">
+              <strong>Artist Biography</strong>
+              <span>PDF · Full long-form bio</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="presskit-contact">
+        <h3>Contact Information</h3>
+        <div class="contact-line">
+          <span class="icon">✉</span>
+          <a href="mailto:liche6549@gmail.com" style="color:inherit;">liche6549@gmail.com</a>
+        </div>
+        <div class="contact-line">
+          <span class="icon">☎</span>
+          <span>(857) 869-5485</span>
+        </div>
+        <div class="contact-line">
+          <span class="icon">📍</span>
+          <span>Boston, Massachusetts</span>
+        </div>
+        <div style="margin-top:2rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1);">
+          <p style="font-style:italic; color:rgba(245,240,232,0.5); font-size:0.85rem; line-height:1.8;">Available for solo recitals, concerto engagements, collaborative performances, and masterclasses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <span class="section-label" style="display:block;text-align:center;">Get in Touch</span>
+    <h2 class="section-title">Contact</h2>
+    <div class="gold-rule" style="margin:0 auto 2.5rem;"></div>
+    <p class="contact-intro">For booking, press inquiries, or collaborations, please reach out directly.</p>
+    <div class="contact-details">
+      <div class="contact-item"><a href="mailto:liche6549@gmail.com">liche6549@gmail.com</a></div>
+      <div class="contact-item">(857) 869-5485</div>
+      <div class="contact-item">Boston, Massachusetts</div>
+    </div>
+    <div class="social-links">
+      <a href="https://www.instagram.com/chelipiano/" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/share/1aSK5aovZ8/?mibextid=wwXIfr" target="_blank">Facebook</a>
+      <a href="https://youtube.com/@chelipiano" target="_blank">YouTube</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Che Li. All rights reserved.</div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/chelipiano/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/share/1aSK5aovZ8/?mibextid=wwXIfr" target="_blank">Facebook</a>
+    <a href="https://youtube.com/@chelipiano" target="_blank">YouTube</a>
+  </div>
+</footer>
+
+<script>
+  // Smooth nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+
+  // Intersection observer fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.performance-card, .award-item, .bio-highlight-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
